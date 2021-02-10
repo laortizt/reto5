@@ -6,16 +6,20 @@ let load = 0
 let int = setInterval(blurring, 30)
 
 function blurring() {
-    
+    load++
 
-    if(){
-       
+    if(load > 99){ /*aqui*/ 
+        clearInterval(int) /*aqui*/ 
     }
 
-    loadText.innerText = 
-    loadText.style.opacity = 
-    bg.style.filter = 
+    loadText.innerText = `${load}%` /*aqui*/ 
+    loadText.style.opacity = scale(load, 0, 100, 1, 0)  /*aqui*/ 
+    bg.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)` /*aqui*/ 
 }
+/*aqui*/
+const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+  }
 
    
  
